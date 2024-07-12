@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block start %}
+    <br/>
+    <form method="post" class="col-9 mx-auto card p-4 shadow-lg ">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Some Machine Learning Models </label>
+        </div>
+        <div>
+             <a href="/sms_predictor/"> ~> SMS DETECTOR</a>
+        </div>
+    </form><br/>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block start %}    
+    <br/>
+    <form method="post" class="col-5 mx-auto card p-5 shadow-lg">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Input SMS</label>
+            <input type="text" class="form-control" name="sms_data" required>
+        </div>        
+        <button type="submit" class="btn btn-primary">Check</button>
+    </form><br/>
+    
+    {% for result in prediction %}
+        {% if result == 1 %}
+        <div class="mb-3 col-5 mx-auto card p-4 shadow-lg">
+            <h2 style="text-align: center;">SPAM MESSAGE !!</h2>
+        </div>
+        {% else %}
+        <div class="mb-3 col-5 mx-auto card p-4 shadow-lg">
+            <h2 style="text-align: center;">NOT SPAM</h2>
+        </div>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}
